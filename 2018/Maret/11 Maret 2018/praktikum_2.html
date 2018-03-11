@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Belajar JS 2</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Angka 1</td>
+            <td>
+                <input type="text" name="angka_1" placeholder="Angka 1">
+            </td>
+        </tr>
+        <tr>
+            <td>Angka 2</td>
+            <td>
+                <input type="text" name="angka_2" placeholder="Angka 2">
+            </td>
+        </tr>
+        <tr>
+            <td>Pilih Operator</td>
+            <td>
+                <select name="operator" id="operator">
+                    <option value="">Pilih Operator</option>
+                    <option value="tambah">Tambah (+)</option>
+                    <option value="kurang">Kurang (-)</option>
+                    <option value="kali">Perkalian (*)</option>
+                    <option value="bagi">Pembagian (/)</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Hitung</td>
+            <td>
+                <input type="submit" value="HITUNG" id="hitung">
+            </td>
+        </tr>
+        <tr>
+            <td>Hasil</td>
+            <td>
+                <input type="text" name="hasil" placeholder="Hasil Perhitungan">
+            </td>
+        </tr>
+    </table>
+
+    <script type="text/javascript">
+        document.getElementById('hitung').addEventListener('click', function() {
+            var angka_1 = parseFloat(document.getElementsByName('angka_1')[0].value);
+            var angka_2 = parseFloat(document.getElementsByName('angka_2')[0].value);
+            var pilihan = document.getElementsByName('operator')[0].value;
+            var hasil;
+
+            if (pilihan === '') {
+                return alert('Anda belum memilih operator perhitungan');
+            }
+
+            if (pilihan === 'tambah') {
+                hasil = angka_1 + angka_2;
+            } else if (pilihan === 'kurang') {
+                hasil = angka_1 - angka_2;
+            } else if (pilihan === 'kali') {
+                hasil = angka_1 * angka_2;
+            } else if (pilihan === 'bagi') {
+                hasil = angka_1 / angka_2;
+            }
+
+            document.getElementsByName('hasil')[0].value = hasil;
+        });
+    </script>
+</body>
+
+</html>
